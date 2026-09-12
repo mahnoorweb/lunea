@@ -4,7 +4,7 @@ function Home() {
   return (
     <main>
       <section className="hero">
-        <div>
+        <div className="main-hero">
           <p>NEW COLLECTION 2026</p>
 
           <h1>
@@ -18,6 +18,9 @@ function Home() {
           </p>
 
           <Link to="/products">Shop Now</Link>
+        </div>
+        <div className="hero-image">
+          <img src="/images/main -img.png" alt="LUNÉA Fashion" />
         </div>
       </section>
 
@@ -36,22 +39,26 @@ function Home() {
         <h2>Shop By Category</h2>
 
         <div className="category-grid">
-          <div className="category-box">
+                  <div className="category-box">
+                      <img src="/images/casual3.jpg" alt="causal"/>
             <h3>Casual</h3>
             <p>Simple everyday fashion</p>
           </div>
 
           <div className="category-box">
+            <img src="/images/dress 2.jpg"alt="party"/>
             <h3>Party Wear</h3>
             <p>Perfect for celebrations</p>
           </div>
 
           <div className="category-box">
+            <img src="/images/formal3.jpg"alt="formal"/>
             <h3>Formal</h3>
             <p>Elegant formal looks</p>
           </div>
 
           <div className="category-box">
+            <img src="/images/party4.jpg"alt="maxi"/>
             <h3>Maxi</h3>
             <p>Beautiful flowing styles</p>
           </div>

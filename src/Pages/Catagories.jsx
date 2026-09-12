@@ -101,22 +101,27 @@ import { Link } from "react-router-dom";
 function Categories() {
   const categories = [
     {
+image:"/images/hero casual.jpg",
       name: "Casual",
       description: "Comfortable everyday styles",
     },
     {
+      image:"/images/new-in img.jpg",
       name: "Party Wear",
       description: "Beautiful outfits for celebrations",
     },
     {
+      image:"/images/midnight mouse img.webp",
       name: "Formal",
       description: "Elegant looks for special occasions",
     },
     {
+      image:"/images/party5.jpg",
       name: "Maxi",
       description: "Flowing and graceful styles",
     },
     {
+      image:"/images/hero party.jpg",
       name: "New In",
       description: "Fresh styles and latest arrivals",
     },
@@ -139,10 +144,10 @@ function Categories() {
         <div className="category-grid">
           {categories.map((category) => (
             <div className="category-box" key={category.name}>
+              <img src={category.image} alt={category.name} />
+
               <h2>{category.name}</h2>
-
               <p>{category.description}</p>
-
               <Link to="/products">Explore</Link>
             </div>
           ))}
