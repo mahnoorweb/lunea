@@ -207,6 +207,7 @@ input {
 
 .category-box:hover {
   transform: translateY(-6px);
+  cursor: pointer;
   box-shadow: 0 8px 20px rgba(80, 50, 50, 0.15);
 }
 
