@@ -6,7 +6,7 @@ import Navbar from "./Component/Navbar";
 import Home from "./Pages/Home";
 import Products from "./Pages/Products";
 import Catagories from "./Pages/Catagories";
-import ProductDetail from "./Pages/ProductDetail";
+import ProductDetail from "./Pages/productDetail";
 import Cart from "./Pages/Cart";
 
 import Footer from "./Component/Footer";
