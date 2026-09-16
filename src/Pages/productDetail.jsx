@@ -1,5 +1,5 @@
+import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import products from "../Data/Product";
 import { useCart } from "../contect/CartContext";
 
 function ProductDetail() {
@@ -9,7 +9,38 @@ function ProductDetail() {
 
   const navigate = useNavigate();
 
-  const product = products.find((item) => item.id === Number(id));
+  const [product, setProduct] = useState(null);
+
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch("/womensDress.json")
+      .then((res) => res.json())
+
+      .then((data) => {
+        console.log("All Products:", data.dresses);
+
+        const selectedProduct = data.dresses.find(
+          (item) => item.id === Number(id),
+        );
+
+        console.log("Selected Product:", selectedProduct);
+
+        setProduct(selectedProduct);
+
+        setLoading(false);
+      })
+
+      .catch((error) => {
+        console.log("Error:", error);
+
+        setLoading(false);
+      });
+  }, [id]);
+
+  if (loading) {
+    return <h2>Loading Product...</h2>;
+  }
 
   if (!product) {
     return (
@@ -23,8 +54,10 @@ function ProductDetail() {
 
   return (
     <main className="product-detail-page">
+      {/* Detail Hero */}
       <section className="detail-hero">
         <p>LUNÉA COLLECTION</p>
+
         <h1>PRODUCT DETAILS</h1>
       </section>
 
@@ -38,20 +71,21 @@ function ProductDetail() {
 
           <h2>{product.name}</h2>
 
-          <h3>Rs. {product.price.toLocaleString()}</h3>
+          <h3>{product.price}</h3>
 
-          <p className="detail-description">
-            Discover the elegance of {product.name}. This beautiful LUNÉA design
-            is perfect for creating a graceful and stylish look.
-          </p>
+          <p className="detail-description">{product.description}</p>
 
           <p>✨ Premium Quality</p>
+
           <p>🚚 Fast Delivery</p>
+
           <p>↩️ Easy Exchange</p>
+
           <button
             className="add-cart-btn"
             onClick={() => {
               addToCart(product);
+
               navigate("/cart");
             }}
           >
@@ -63,7 +97,6 @@ function ProductDetail() {
           </Link>
         </div>
       </section>
-
     </main>
   );
 }
